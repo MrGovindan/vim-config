@@ -1,0 +1,40 @@
+" C++ Development Configuration
+"""""""""""""""""""""""""""""""
+if !exists('g:cpp_development_configuration_folder')
+  let g:cpp_development_configuration_folder = getcwd()
+
+  " Ale configuration.
+  """"""""""""""""""""
+  let g:ale_linters = {'cpp': ['clangformat', 'clangtidy', 'gcc']}
+  let g:ale_fix_on_save = 1
+  let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], }
+
+  let g:ale_c_build_dir = getcwd()
+  let g:ale_c_parse_makefile = 1
+  let g:ale_c_parse_compile_commands = 1
+
+  ""let g:ale_cpp_cppcheck_options = '--enable=style --project=./compile_commands.json'
+
+  let g:ale_cpp_clangtidy_checks = ['readability-*', 'performance-*', 'modernize-*', 'bugprone-*', 'boost-*']
+
+  noremap ]a :ALENextWrap<CR>
+  noremap [a :ALEPreviousWrap<CR>
+
+  " Neoinclude
+  """"""""""""
+  " set path=".,/usr/local/include,/usr/include"
+
+  " Makeprg
+  """""""""
+  let &makeprg="make --directory=./build -s -j"
+  let &makeef=getcwd() . "/build/build_errors.txt"
+
+  " Custom Mappings
+  """""""""""""""""
+  map <F1> :!mkdir build<CR>
+  map <F2> :execute '!' . rtags_compile_command<CR>
+  map <F3> :make!<CR>
+  map <F4> :!cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
+  map <F5> :!cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
+  map <F6> :!cd ./build && make -s -j && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
+endif
