@@ -112,7 +112,7 @@ set colorcolumn=101
 " Localvimrc "
 """"""""""""""
 let g:localvimrc_sandbox=0
-let g:localvimrc_whitelist=['~/.config/nvim/cpp/']
+let g:localvimrc_whitelist=['.config/nvim/cpp/']
 
 """"""""""""""""
 " AUTOCOMPLETE "
@@ -135,17 +135,17 @@ nn <silent> <F12> :call LanguageClient#textDocument_references({'includeDeclarat
 nn <silent> <C-k><C-i> :call LanguageClient#textDocument_hover()<cr>
 nn <silent> <C-k><C-r> :call LanguageClient#textDocument_rename()<cr>
 
-augroup LanguageClient_config
-  au!
-  au BufEnter * let b:Plugin_LanguageClient_started = 0
-  au User LanguageClientStopped setl signcolumn=auto
-  au User LanguageClientStopped set b:Plugin_LanguageClient_started = 0
-  au User LanguageClientStopped echom "STOPPED"
-  au User LanguageClientStarted setl signcolumn=yes
-  au User LanguageClientStarted set b:Plugin_LanguageClient_started = 1
-  au User LanguageClientStarted echom "STARTED"
-  au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
-augroup END
+"augroup LanguageClient_config
+"  au!
+"  au BufEnter * let b:Plugin_LanguageClient_started = 0
+"  au User LanguageClientStopped setl signcolumn=auto
+"  au User LanguageClientStopped set b:Plugin_LanguageClient_started = 0
+"  au User LanguageClientStopped echom "STOPPED"
+"  au User LanguageClientStarted setl signcolumn=yes
+"  au User LanguageClientStarted set b:Plugin_LanguageClient_started = 1
+"  au User LanguageClientStarted echom "STARTED"
+"  au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
+"augroup END
 
 " nn <silent> xh :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'L'})<cr>
 " nn <silent> xj :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'D'})<cr>

@@ -13,8 +13,6 @@ if !exists('g:cpp_development_configuration_folder')
   let g:ale_c_parse_makefile = 1
   let g:ale_c_parse_compile_commands = 1
 
-  ""let g:ale_cpp_cppcheck_options = '--enable=style --project=./compile_commands.json'
-
   let g:ale_cpp_clangtidy_checks = ['readability-*', 'performance-*', 'modernize-*', 'bugprone-*', 'boost-*']
 
   noremap ]a :ALENextWrap<CR>
