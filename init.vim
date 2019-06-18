@@ -27,6 +27,7 @@ Plug 'raimondi/delimitmate'
 Plug 'sbdchd/neoformat'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'vhdirk/vim-cmake'
 
 " AUTOCOMPLETE "
 """"""""""""""""
@@ -187,3 +188,9 @@ augroup format
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
+
+"""""""""""""
+" vim-cmake "
+"""""""""""""
+let g:cmake_export_compile_commands=1
+let g:cmake_ycm_symlinks=1
