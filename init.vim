@@ -95,7 +95,6 @@ set termguicolors
 colorscheme base16-tomorrow-night
 
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -106,7 +105,7 @@ let g:lightline = {
       \ }
 
 set number
-set colorcolumn=101
+set colorcolumn=100
 
 """"""""""""""
 " Localvimrc "
