@@ -18,10 +18,6 @@ if !exists('g:cpp_development_configuration_folder')
   noremap ]a :ALENextWrap<CR>
   noremap [a :ALEPreviousWrap<CR>
 
-  " Neoinclude
-  """"""""""""
-  " set path=".,/usr/local/include,/usr/include"
-
   " Makeprg
   """""""""
   let &makeprg="make --directory=./build -s -j`nproc`"
@@ -29,10 +25,9 @@ if !exists('g:cpp_development_configuration_folder')
 
   " Custom Mappings
   """""""""""""""""
-  map <F1> :!mkdir build<CR>
-  map <F2> :CMakeClean<CR>
-  map <F3> :make -j8<CR>
-  map <F4> :let g:cmake_build_type="debug" <bar> CMake<CR>
-  map <F5> :let g:cmake_build_type="release" <bar> CMake<CR>
-  map <F6> :make -j8 <bar> :make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
+  map <F1> :mkdir build<CR>
+  map <F3> :AsyncRun make --directory=./build -s -j8<CR>
+  map <F4> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
+  map <F5> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
+  map <F6> :AsyncRun cd ./build && make -s -j && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
 endif

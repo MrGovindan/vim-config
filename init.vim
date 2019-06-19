@@ -7,10 +7,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 " LOOK AND FEEL
 """""""""""""""
-Plug 'cocopon/iceberg.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'tomasiser/vim-code-dark'
 
 " UTILITIES
 """""""""""
@@ -27,7 +25,7 @@ Plug 'raimondi/delimitmate'
 Plug 'sbdchd/neoformat'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'vhdirk/vim-cmake'
+Plug 'skywind3000/asyncrun.vim'
 
 " AUTOCOMPLETE "
 """"""""""""""""
@@ -189,8 +187,7 @@ augroup format
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
-"""""""""""""
-" vim-cmake "
-"""""""""""""
-let g:cmake_export_compile_commands=1
-let g:cmake_ycm_symlinks=1
+""""""""""""
+" asyncrun "
+""""""""""""
+let g:asyncrun_open=20
