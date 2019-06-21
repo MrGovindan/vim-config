@@ -29,3 +29,10 @@ if command -v clang-tidy 2>/dev/null; then
 else
   apt install clang-tidy
 fi
+
+# nodejs
+if command -v nodejs 2>/dev/null; then
+  echo "nodejs executable found"
+else
+  apt install nodejs
+fi
