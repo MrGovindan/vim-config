@@ -10,6 +10,13 @@ fi
 
 echo plug.vim installed.
 
+echo creating symlinks for tmux configuration
+
+ln -s ~/.config/nvim/tmux-config/.tmux ~/
+ln -s ~/.config/nvim/tmux-config/.tmux.conf ~/
+
+echo symlinks created for tmux configuration
+
 if command -v clangd 2>/dev/null; then
   echo "clangd executable found"
 else
