@@ -29,5 +29,5 @@ if !exists('g:cpp_development_configuration_folder')
   map <F3> :AsyncRun make --directory=./build -s -j8<CR>
   map <F4> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
   map <F5> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
-  map <F6> :AsyncRun cd ./build && make -s -j && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
+  map <F6> :AsyncRun cd ./build && make -s -j8 && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
 endif

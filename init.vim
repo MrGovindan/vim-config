@@ -29,8 +29,6 @@ Plug 'skywind3000/asyncrun.vim'
 
 " AUTOCOMPLETE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " LINTING
@@ -153,4 +151,4 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " asyncrun "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <F9> :call asyncrun#quickfix_toggle(8)<cr>
+noremap <F9> :call asyncrun#quickfix_toggle(30)<cr>
