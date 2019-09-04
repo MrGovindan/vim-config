@@ -44,6 +44,13 @@ else
   apt install nodejs
 fi
 
+# npm
+if command -v npm 2>/dev/null; then
+  echo "npm executable found"
+else
+  apt install npm
+fi
+
 # pip3
 if command -v pip3 2>/dev/null; then
   echo "pip3 executable found"
@@ -51,6 +58,7 @@ else
   apt install pip3
 fi
 
+# compdb
 if [[ -x "${HOME}/.local/bin/compdb" ]]
 then
   echo "compdb executable found"
