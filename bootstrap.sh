@@ -43,3 +43,18 @@ if command -v nodejs 2>/dev/null; then
 else
   apt install nodejs
 fi
+
+# pip3
+if command -v pip3 2>/dev/null; then
+  echo "pip3 executable found"
+else
+  apt install pip3
+fi
+
+if [[ -x "${HOME}/.local/bin/compdb" ]]
+then
+  echo "compdb executable found"
+else
+  echo "compdb not installed"
+  pip3 install compdb
+fi

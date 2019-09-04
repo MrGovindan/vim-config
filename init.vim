@@ -152,3 +152,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " asyncrun "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <F9> :call asyncrun#quickfix_toggle(30)<cr>
+
+" C++ comment out word
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap gcw ysw/lysw*

@@ -26,8 +26,9 @@ if !exists('g:cpp_development_configuration_folder')
   " Custom Mappings
   """""""""""""""""
   map <F1> :!mkdir build<CR>
+  map <F2> :AsyncRun cd build && ~/.local/bin/compdb -p . list > compile_commands2.json && rm compile_commands.json && mv compile_commands2.json compile_commands.json<CR>
   map <F3> :AsyncRun make --directory=./build -s -j8<CR>
-  map <F4> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
+  map <F4> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. && ~/.local/bin/compdb -p . list > compile_commands2.json && rm compile_commands.json && mv compile_commands2.json compile_commands.json<CR>
   map <F5> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
   map <F6> :AsyncRun cd ./build && make -s -j8 && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
 endif
