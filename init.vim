@@ -54,13 +54,19 @@ syntax on
 set termguicolors
 colorscheme base16-tomorrow-night
 
+function! CocCurrentFunction()
+  return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'fugitive#head',
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ }
 
@@ -90,6 +96,14 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+
+call SetupCommandAbbrs('C', 'CocConfig')
 
 " Neoformat
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
