@@ -20,7 +20,9 @@ echo symlinks created for tmux configuration
 if command -v clangd 2>/dev/null; then
   echo "clangd executable found"
 else
+  echo "trying to install clangd"
   apt install clang-tools
+  apt install clangd
 fi
 
 # clangformat
