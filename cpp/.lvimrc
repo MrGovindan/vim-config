@@ -13,7 +13,7 @@ if !exists('g:cpp_development_configuration_folder')
   let g:ale_c_parse_makefile = 1
   let g:ale_c_parse_compile_commands = 1
 
-  let g:ale_cpp_clangtidy_checks = ['readability-*', 'performance-*', 'modernize-*', 'bugprone-*', 'boost-*']
+  let g:ale_cpp_clangtidy_checks = ['readability-*', 'performance-*', 'modernize-*', 'bugprone-*', 'boost-*', 'portablity-*']
 
   noremap ]a :ALENextWrap<CR>
   noremap [a :ALEPreviousWrap<CR>
@@ -31,4 +31,5 @@ if !exists('g:cpp_development_configuration_folder')
   map <F4> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. && ~/.local/bin/compdb -p . list > compile_commands2.json && rm compile_commands.json && mv compile_commands2.json compile_commands.json<CR>
   map <F5> :AsyncRun cd build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..<CR>
   map <F6> :AsyncRun cd ./build && make -s -j8 && make CTEST_OUTPUT_ON_FAILURE=1 test<CR>
+  map <F7> :AsyncRun python ~/.config/nvim/cpp/tidy.py<CR>
 endif
