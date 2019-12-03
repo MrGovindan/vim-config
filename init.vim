@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 " LOOK AND FEEL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
+Plug 'joshdick/onedark.vim'
 
 " UTILITIES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +26,7 @@ Plug 'sbdchd/neoformat'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'sheerun/vim-polyglot'
 
 " AUTOCOMPLETE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,13 +59,14 @@ set clipboard+=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set termguicolors
-colorscheme base16-tomorrow-night
+colorscheme onedark
 
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
 endfunction
 
 let g:lightline = {
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -84,14 +86,23 @@ set colorcolumn=100
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Localvimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:localvimrc_file_directory_only=1
 let g:localvimrc_sandbox=0
-let g:localvimrc_whitelist=['.config/nvim/cpp/']
+let g:localvimrc_ask=0
 
 " deoplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 
 set hidden
+
+" ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {
+      \ 'java':[],
+      \}
+
+let g:ale_linters_explicit = 1
 
 " coc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,7 +176,10 @@ let g:neosnippet#enable_completed_snippet = 1
 nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> <F12> <Plug>(coc-references)
 nmap <C-k><C-r> <Plug>(coc-rename)
-nnoremap <silent> <C-k><C-i> :call <SID>show_documentation()<CR>
+nmap <silent> <C-k><C-i> :call <SID>show_documentation()<CR>
+nmap [a <Plug>(coc-diagnostic-prev)
+nmap ]a <Plug>(coc-diagnostic-prev)
+nmap <C-k><C-h> <Plug>(coc-diagnostic-info)
 
 inoremap <silent><expr> <c-space> coc#refresh()
 

@@ -3,6 +3,10 @@
 "suggest.triggerAfterInsertEnter": true,
 "suggest.snippetIndicator": "►",
 
+"java.import.gradle.enabled":true,
+"java.import.gradle.wrapper.enabled":true,
+"java.trace.server":"verbose",
+
 "languageserver": {
     "clangd": {
       "command": "clangd",
