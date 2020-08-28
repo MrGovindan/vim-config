@@ -1,0 +1,23 @@
+" Java Development Configuration
+"""""""""""""""""""""""""""""""
+if !exists('g:java_development_configuration_folder')
+  let g:java_development_configuration_folder = getcwd()
+
+  " Makeprg
+  """""""""
+  let &makeprg="make --directory=./build -s -j`nproc`"
+  let &makeef=getcwd() . "/build/build_errors.txt"
+
+  " ctrl-p
+  """"""""
+  let g:ctrlp_custom_ignore = {
+        \ 'dir': '\v[\/](bin|lib|build|(\.(gradle|idea|settings)))$',
+        \ }
+
+  " Custom Mappings
+  """""""""""""""""
+  map <F3> :AsyncRun ./gradlew build<CR>
+  map <F4> :AsyncRun ./gradlew clean build<CR>
+  map <F6> :AsyncRun ./gradlew test<CR>
+  map <F7> :AsyncRun ./gradlew run<CR>
+endif

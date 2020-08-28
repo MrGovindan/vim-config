@@ -27,6 +27,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " AUTOCOMPLETE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,8 +59,9 @@ set clipboard+=unnamedplus
 " LOOK AND FEEL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
-set termguicolors
+" let g:onedark_terminal_italics=1
 colorscheme onedark
+set cursorline
 
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
@@ -145,6 +147,7 @@ inoremap <C-S> <C-O>:update<CR>
 " Nerdtree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=70
 
 " Tab Navigation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,6 +183,8 @@ nmap <silent> <C-k><C-i> :call <SID>show_documentation()<CR>
 nmap [a <Plug>(coc-diagnostic-prev)
 nmap ]a <Plug>(coc-diagnostic-prev)
 nmap <C-k><C-h> <Plug>(coc-diagnostic-info)
+nmap <C-k><C-f> <Plug>(coc-fix-current)
+nmap <C-k>F <Plug>(coc-fix)
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
