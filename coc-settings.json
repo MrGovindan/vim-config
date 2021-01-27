@@ -18,7 +18,6 @@
   "clangd.arguments": ["-cross-file-rename", "--header-insertion=iwyu", "-j=4"],
 
   "java.errors.incompleteClasspath.severity": "ignore",
-  "clangd.path": "/home/jesse/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
 
   "typescript.format.enabled": true,
 

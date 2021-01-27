@@ -21,43 +21,42 @@ if command -v clangd 2>/dev/null; then
   echo "clangd executable found"
 else
   echo "trying to install clangd"
-  apt install clang-tools
-  apt install clangd
+  sudo -H /bin/bash -c "apt install clang-tools clangd"
 fi
 
 # clangformat
 if command -v clang-format 2>/dev/null; then
   echo "clang-format executable found"
 else
-  apt install clang-format
+  sudo -H /bin/bash -c "apt install clang-format"
 fi
 
 # clangtidy
 if command -v clang-tidy 2>/dev/null; then
   echo "clang-tidy executable found"
 else
-  apt install clang-tidy
+  sudo -H /bin/bash -c "apt install clang-tidy"
 fi
 
 # nodejs
 if command -v nodejs 2>/dev/null; then
   echo "nodejs executable found"
 else
-  apt install nodejs
+  sudo -H /bin/bash -c "apt install nodejs"
 fi
 
 # npm
 if command -v npm 2>/dev/null; then
   echo "npm executable found"
 else
-  apt install npm
+  sudo -H /bin/bash -c "apt install npm"
 fi
 
 # pip3
 if command -v pip3 2>/dev/null; then
   echo "pip3 executable found"
 else
-  apt install pip3
+  sudo -H /bin/bash -c "apt install python3-pip"
 fi
 
 # compdb
@@ -66,5 +65,5 @@ then
   echo "compdb executable found"
 else
   echo "compdb not installed"
-  pip3 install compdb
+  sudo -H /bin/bash -c "pip3 install compdb"
 fi
